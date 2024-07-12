@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  ch_node_colyseus_service1:
+    container_name: "ch_node_colyseus_service1"
+    image: "ch_node_colyseus_service1"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      PUBLIC_URL: "127.0.0.1:2567"
+      PORT: 2567
+    ports:
+      - "2567:2567"
+
