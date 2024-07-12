@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "commonjs",
+      "checkJs": true,
+      "baseUrl": ".",
+      "resolveJsonModule": true,
+      "paths": {
+        "*": ["node_modules/*"],
+        "@utils/*": ["./src/utils/*"],
+        "@events/*": ["./src/events/*"],
+        "@features/*": ["./src/rooms/schema/features/*"],
+        "@entities/*": ["src/rooms/schema/entities/*"],
+        "@rooms/*": ["./src/rooms/*"],
+        "@schema/*": ["./src/rooms/schema/*"],
+      }
+    },
+    "include": ["./src/**/*"]
+  }

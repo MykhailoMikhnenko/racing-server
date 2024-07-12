@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "npm init template for bootstrapping an empty Colyseus project",
+  "main": "./src/index.js",
+  "engines": {
+    "node": ">= 16.13.0"
+  },
+  "scripts": {
+    "start_old": "node src/index.js",
+    "loadtest": "node loadtest/example.js --room my_room --numClients 2",
+    "test": "mocha test/**_test.js --exit --timeout 15000",
+    "build": "exit 0",
+    "generate:cert": "chmod +x ./create_local_cert.sh && ./create_local_cert.sh -d localhost",
+    "start": "NODE_ENV=development PUBLIC_URL=localhost:3001 PORT=2567 nodemon src/index.js & npm run ssl:proxy:local",
+    "ssl:proxy:local": "local-ssl-proxy -s 3001 -t 2567 -k ~/.bmlabs-ssl/localhost/server.key -c ~/.bmlabs-ssl/localhost/server.crt -n localhost"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/colyseus/create-colyseus/issues"
+  },
+  "homepage": "https://github.com/colyseus/create-colyseus#readme",
+  "devDependencies": {
+    "@colyseus/loadtest": "^0.15.0",
+    "@colyseus/testing": "^0.15.0",
+    "mocha": "^10.2.0",
+    "rimraf": "^5.0.0"
+  },
+  "dependencies": {
+    "@colyseus/monitor": "^0.15.0",
+    "@colyseus/playground": "^0.15.3",
+    "@colyseus/tools": "^0.15.0",
+    "@colyseus/ws-transport": "^0.15.0",
+    "@dimforge/rapier3d-compat": "^0.13.1",
+    "@geckos.io/snapshot-interpolation": "^1.1.0",
+    "@geckos.io/typed-array-buffer-schema": "^1.2.1",
+    "colyseus": "^0.15.0",
+    "express": "^4.18.2",
+    "local-ssl-proxy": "^2.0.5"
+  }
+}
