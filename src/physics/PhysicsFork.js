@@ -215,7 +215,7 @@ class Environment {
             //.roundConvexHull(new Float32Array(map.vertices), 2)
             .trimesh(map.vertices, map.indices)
             .setRestitution(0.1)
-            .setFriction(1)
+            .setFriction(0.9)
             //.setTranslation(map.position.x, map.position.y, map.position.z)
             .setCollisionGroups(interactionGroups(0, [1, 2]))
             .setActiveCollisionTypes(RAPIER.ActiveCollisionTypes.DEFAULT | RAPIER.ActiveCollisionTypes.KINEMATIC_FIXED | RAPIER.ActiveCollisionTypes.DYNAMIC_FIXED)
@@ -295,7 +295,7 @@ class Vehicle {
             .convexHull(new Float32Array(carData.vertices))
             .setMass(baseMass)
             .setRestitution(0.1)
-            .setFriction(1)
+            .setFriction(0.9)
             .setCollisionGroups(interactionGroups(1, [0, 1]))
             .setDensity(0.5)
 
