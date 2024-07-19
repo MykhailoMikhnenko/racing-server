@@ -2,11 +2,12 @@
 const{PhysicsRapier} = require("./PhysicsFork")
 
 class Physics {
-	constructor({ wheelsSetup, maps, carShape }, updatePhysics)  {
+	constructor({ modelsInfo, maps, spawnPoints }, updatePhysics, updateInputs)  {
 
-		this.physicsRapier= new PhysicsRapier({ wheelsSetup, maps, carShape }, updatePhysics);
+		this.physicsRapier= new PhysicsRapier({ modelsInfo, maps, spawnPoints }, updatePhysics);
 		this.messageCallbacks = {};
 		this.asyncCalls = {};
+		this.updateInputs = updateInputs;
 		/*
 		this.fork = fork("src/physics/PhysicsFork.js", null, {
 			silent: true,
@@ -31,6 +32,7 @@ class Physics {
 	}
 
 	addPlayer(data) {
+		console.log(data)
 		//this.fork.send({ type: "addPlayer", data });
 		this.physicsRapier.addPlayer(data)
 	}
@@ -43,6 +45,7 @@ class Physics {
 	applyInputs(data) {
 		//this.fork.send({ type: "applyInputs", data });
 		this.physicsRapier.applyInputs(data)
+		this.updateInputs(data)
 	}
 
 	setConfig(data) {

@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     environment:
       PUBLIC_URL: "127.0.0.1:2567"
-      PORT: 2567
+      PORT: 2565
     ports:
       - "2567:2567"
 
